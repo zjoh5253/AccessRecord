@@ -6,20 +6,21 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ["**/*.ts"],
+    files: ["**/*.ts", "**/*.tsx", "**/*.mjs", "**/*.js"],
     languageOptions: {
       globals: {
-        ...globals.node
-      }
+        ...globals.node,
+        ...globals.browser,
+      },
     },
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "warn",
-        { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
-      ]
-    }
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
   },
   {
-    ignores: ["dist/**", "node_modules/**"]
+    ignores: ["dist/**", "node_modules/**", ".next/**", "next-env.d.ts"],
   }
 );
