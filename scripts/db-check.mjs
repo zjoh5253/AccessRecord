@@ -1,4 +1,3 @@
-/* global console */
 import process from "node:process";
 import pg from "pg";
 
